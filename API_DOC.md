@@ -1,59 +1,76 @@
-# File Info API Documentation
+# Campus Recruitment Drive with RapidFort
 
-Welcome to the File Info API documentation. This API allows you to upload files and retrieve information about them.
+Welcome to **RapidFort**, the ultimate solution for campus recruitment drives. RapidFort brings you a cutting-edge web application, backed by a robust REST API-based web server, facilitating seamless file uploads and efficient retrieval of file information. This README provides you with comprehensive insights into the features, usage guidelines, and technical intricacies of the RapidFort project.
 
-## Endpoints
+## Key Features
 
-### Upload a File
+- **Effortless File Uploads:** Our user-friendly interface empowers users to effortlessly upload files with ease.
+- **File Insights at Your Fingertips:** RapidFort enables users to instantly access detailed information about uploaded files, including essential attributes like file name and size.
+- **Intuitive UI:** Experience a simplistic yet engaging web page designed for enhanced user interaction.
+- **Empowered by Docker:** Embrace the power of Docker containerization for swift and hassle-free deployment.
+- **Seamless Kubernetes Integration:** Leverage the provided Kubernetes manifest files to orchestrate flawless web server hosting.
 
-Upload a file to the server.
+## How to Use RapidFort
 
-- **Endpoint:** `POST /upload`
-- **Description:** Uploads a file to the server.
-- **Request:**
-  - Method: POST
-  - Headers: `Content-Type: multipart/form-data`
-  - Body: File attachment
-- **Response:**
-  - JSON object with a `message` field indicating the success or error
+### Local Deployment Instructions
 
-#### Example Request
+1. Begin by cloning the repository from our trusted source on GitHub.
+2. Navigate to the root directory of the project.
+3. Install the required Python packages by executing the command.
+4. Launch the Flask application by running a command.
+5. Access the RapidFort application through your preferred web browser using the link `http://127.0.0.1:5000/`.
 
-```bash
-curl -X POST -F "file=@path/to/file.txt" http://yourserver/upload
+### Uploading Files with Ease
 
-Example Response: 
-    {
-    "message": "File uploaded successfully"
-    }
+1. Launch RapidFort in your web browser.
+2. Initiate the file upload process by clicking on the "Upload File" button.
+3. Select the desired file from your local system and confirm the upload by clicking "Upload."
+4. A prompt will notify you upon the successful completion of the file upload.
 
-Get File Information:
-    -Retrieve information about an uploaded file.
+### Retrieving Precise File Information
 
-Endpoint: POST /get_file_info
-Description: Retrieves information about an uploaded file.
-Request:
-Method: POST
-Headers: Content-Type: multipart/form-data
-Body: File attachment
-Response:
-JSON object containing file information
-Example Request
-bash
-Copy code
-curl -X POST -F "file=@path/to/file.txt" http://yourserver/get_file_info
-Example Response
-json
-Copy code
-{
-  "file_type": "ASCII text",
-  "file_name": "file.txt",
-  "file_size": "12345 bytes"
-}
-HTTP Methods: POST vs. GET
-We use the POST method for both uploading files and retrieving file information to adhere to REST principles. The POST method is used for creating resources, which aligns with uploading a file. It's also used for retrieving information when the request has a complex payload, as is the case here.
+1. Navigate to RapidFort's main page.
+2. Click on the "Get File Info" button.
+3. Choose a file from your system and proceed by clicking "Get Info."
+4. RapidFort will promptly present comprehensive information about the file, including its name, size in bytes, and human-readable size.
 
-For more simple read-only operations, GET could be used. However, to keep consistency and adhere to best practices, we use POST for both operations.
+## API Overview
 
-Conclusion
-Thank you for using the File Info API. If you have any questions or feedback, please don't hesitate to contact us.
+### `GET /`
+
+- Access the main page of the RapidFort application.
+
+### `POST /upload`
+
+- Endpoint designed for hassle-free file uploads.
+- Submit your file using the `file` parameter in your request.
+- Receive a well-defined JSON response indicating the status of your file upload.
+
+### `POST /get_file_info`
+
+- Endpoint exclusively for retrieving meticulous file details.
+- Provide a file using the `file` parameter in your request.
+- Receive a structured JSON response containing in-depth file information.
+
+## The Inner Workings
+
+### Project Structure
+
+- `app.py`: The heart of the application, containing robust Flask routes and intricate logic.
+- `templates/`: Home to meticulously crafted HTML templates ensuring a seamless user experience.
+- `uploads/`: The secure vault for safeguarding all uploaded files.
+- `Dockerfile`: Crafted Docker configuration pivotal for containerization.
+- `deployment.yaml` and `service.yaml`: Inclusion of Kubernetes manifest files, paving the path for deployment.
+
+### Dependencies
+
+- Flask: The backbone of micro web frameworks, serving as the foundation for building web applications.
+- Docker: The game-changer, orchestrating application containerization with unparalleled efficiency.
+
+## Embrace the Future with RapidFort
+
+RapidFort seamlessly streamlines the process of uploading and retrieving files, revolutionizing campus recruitment drives. Backed by an intuitive interface, REST API endpoints, and the power of Docker and Kubernetes, RapidFort empowers users to effortlessly manage their files.
+
+For inquiries or assistance, kindly reach out to our dedicated project maintainers or utilize our GitHub repository's issue submission feature.
+
+Dive into the future of file management with RapidFort!
